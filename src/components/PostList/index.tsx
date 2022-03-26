@@ -5,8 +5,8 @@ export const PostList = ({ lists = [] }) => {
 
     return (
         <div>
-      {lists.length > 0 && lists.map(list => {
-      	return <IonCard>
+      {lists.length > 0 && lists.map((list, i) => {
+      	return <IonCard key={`index-${i}`}>
           <IonCardHeader>
             <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
             <IonCardTitle>Card Title</IonCardTitle>

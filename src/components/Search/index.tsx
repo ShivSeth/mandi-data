@@ -16,17 +16,12 @@ const Search: React.FC = () => {
   const [searchText, setSearchText] = useState('');
   const [totalPage, setTotalPage] = useState(1);
 
-  useEffect(()=>{
-       getList();
-    },[]);
-    
-
     useEffect(()=>{
        getList();
     },[currentPage]);
     
   const getList = () => {
-      APIService.axiosCall(`./mock-data/PostList.json`, {
+      APIService.axiosCall(`https://backend-hackathon.herokuapp.com/api/post`, {
         method: "GET",
         params: {q: searchText, limit:resultLimit, currentPage},
         successCallBack: (resp:any) => handleResponse(resp),

@@ -8,25 +8,25 @@ import './form.css'
 
 export const Form =  ({ ...props }) => {
   const [formData, setFormData] = useState<Object>({});
+  const [selectedRadio, setSelectedRadio] = useState<string>('');
 
   const { register, handleSubmit, formState: { errors } } = useForm({
 		mode: "onTouched",
 		reValidateMode: "onChange"
 	});
 
-  const updateData = (data: any) => {
-    setFormData({ [data.target.name]: data.target.value });
-  }
+  // const updateData = (data: any) => {
+  //   setFormData({ [data.target.name]: data.target.value });
+  // }
 
-  const updateCheckboxData = (data: any) => {
-    setFormData({ [data.target.name]: [data.target.value] });
-    console.log(data, formData);
-  }
+  // const updateCheckboxData = (data: any) => {
+  //   setFormData({ [data.target.name]: [data.target.value] });
+  //   console.log(data, formData);
+  // }
 
   const onSubmit = (data: any) => {
     let finalData = {...data, ...formData};
     props.formDataCallBack(finalData);
-
   }
 
   return (
@@ -37,20 +37,22 @@ export const Form =  ({ ...props }) => {
       <form onSubmit={ handleSubmit(onSubmit) } className="forms">
         { props.fields.map((field: any, index: any) => {
           const { label, required, requiredOptions, props } = field;
-
+          const labelPosition = props.labelPosition || "stacked";
           return (
             <IonItem key={ `form_field_${ index }` }>
                  {props.type === 'radio' &&
-                  <IonRadioGroup className="radio-container" name={props.name} onIonChange={e => updateData(e)}>
-                    {label && <IonLabel className="space-20" position="stacked">{ label } </IonLabel>}
+                  <IonRadioGroup className="radio-container" value={selectedRadio ? selectedRadio : props.selected} onIonChange={e => setSelectedRadio(e.detail.value)}>
+                  <>
+                    {label && <IonLabel className="space-20 transform-none" position="stacked">{ label } </IonLabel>}
                     { props.radioOptions.map((item: any, i: any) => {
                       return (
-                        <IonItem key={`radio_field_${i}`}>
+                        <IonItem key={`radio_field_${i}`}  lines='none'>
                           <IonLabel>{item}</IonLabel>
-                          <IonRadio slot="start" value={item} />
+                          <IonRadio slot="start" value={item} { ...register(props.name, { required, ...requiredOptions }) }/>
                         </IonItem>
                       )
                     }) }
+                    </>
                   </IonRadioGroup>
                 }
                 {props.type === 'select' &&
@@ -70,8 +72,8 @@ export const Form =  ({ ...props }) => {
                     {label && <IonLabel className="space-20" position="stacked">{ label } </IonLabel>}
                     { props.checkboxOptions.map((item: any, c: any) => {
                       return (
-                          <IonList key={`checkbox_${c}`} className='radio-container'>
-                            <IonItem key={`checkbox_item_${c}`} >
+                          <IonList key={`checkbox_${c}`} className='radio-container' lines='none'>
+                            <IonItem key={`checkbox_item_${c}`} class="ion-no-padding" lines='none'>
                               <IonLabel >{item}</IonLabel>
                               <IonCheckbox slot="start" key={`checkbox_${c}`} value={item} { ...register(props.name, { required, ...requiredOptions }) }/>
                             </IonItem>
@@ -82,7 +84,7 @@ export const Form =  ({ ...props }) => {
                 }
                 {props.type !== 'radio' && props.type !== 'select' && props.type !== 'checkbox' &&
                   <>
-                    {label && <IonLabel className="space-20" position="stacked">{ label } </IonLabel>}
+                    {label && <IonLabel className="space-20" position={labelPosition}>{ label } </IonLabel>}
                     <IonInput className='input-element' { ...props } { ...register(props.name, { required, ...requiredOptions }) } />
                   </>
                 }
@@ -91,7 +93,7 @@ export const Form =  ({ ...props }) => {
           );
         })}
 
-        <IonButton type="submit" className="ion-margin-top" expand="full">Submit</IonButton>
+        <IonButton type="submit" className="ion-margin-top form-submit-btn" expand="full">{props.submitLabel}</IonButton>
       </form>
     </>
   );

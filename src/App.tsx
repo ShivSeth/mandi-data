@@ -36,8 +36,10 @@ import './theme/variables.css';
 import './App.css';
 
 setupIonicReact();
+const islogin = !!localStorage.getItem('isLogin');
 
 const App: React.FC = () => (
+
   <IonApp>
     <IonReactRouter>
       <IonTabs>
@@ -60,14 +62,26 @@ const App: React.FC = () => (
             <IonIcon icon={homeOutline} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
+          {!islogin && 
           <IonTabButton tab="tab2" href="/tab2">
             <IonIcon icon={personCircleOutline} />
             <IonLabel>Login</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
+          </IonTabButton>}
+           {!islogin && <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={accessibilityOutline} />
             <IonLabel>New User</IonLabel>
           </IonTabButton>
+        }
+        {!!islogin && 
+          <IonTabButton tab="tab2" href="/Profile">
+            <IonIcon icon={personCircleOutline} />
+            <IonLabel>Profile</IonLabel>
+          </IonTabButton>}
+           {!!islogin && <IonTabButton tab="tab3" href="/tab3">
+            <IonIcon icon={accessibilityOutline} />
+            <IonLabel>New User</IonLabel>
+          </IonTabButton>
+        }
         </IonTabBar>
       </IonTabs>
     </IonReactRouter>
