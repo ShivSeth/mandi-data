@@ -1,21 +1,28 @@
 .f-search{
+     position: relative;
 	.filter-section{
-		 display: flex;
+		display: flex;
         overflow: hidden;
         margin: 1em 0;
-        color: #fff;
-        border: 1px solid #333;
+        color: #000;
         align-items: center;
+        width: 100%;
     }
 
     .left {
-        padding: 1em;
-        background-color: #337ab7;
+        margin: 0 10px;
+        margin-right: auto;
     }
 
     .right {
-        padding: 1em;
-        background-color: #5cb85c;
+        margin: 0 10px;
+    }
+    .filter{
+    	background: #ccc;
+    	padding: .5rem 10px;
+    	color:  #58A827;
+    	font-size: 20px;
+    	font-weight: bold;
     }
 	.number-of-page{
 		margin: 20px;

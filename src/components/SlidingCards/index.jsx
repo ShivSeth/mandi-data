@@ -4,10 +4,10 @@ import { pin, wifi, wine, warning, walk } from 'ionicons/icons';
 export const SlidingCards = ({ lists = [] }) => {
     const slideOpts = {
         initialSlide: 1,
-        speed: 400
+        speed: 100
     };
     return (
-        <IonSlides pager={false} options={slideOpts} className="my-5">
+        <IonSlides pager={true} options={slideOpts} className="my-5">
             <IonSlide>
               <IonCard>
                 <IonGrid>

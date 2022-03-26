@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import MyCarousel from '../components/MyCarousel';
 import Search from '../components/Search';
 import SlidingCards from '../components/SlidingCards';
+import SocialShare from '../components/SocialShare';
 import { isEmpty } from "lodash";
 import './Tab1.css';
 const Tab1: React.FC = () => {
@@ -19,6 +20,7 @@ const Tab1: React.FC = () => {
         <MyCarousel/>
         <SlidingCards />
         <Search />
+        <SocialShare />
       </IonContent>
     </IonPage>
     );
