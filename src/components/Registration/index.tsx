@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { APIService } from '../../Services/api';
 import {Form} from '../Form';
 
 const Registration: React.FC = () => {
+  const [registrationData, setRegistrationData] = useState<Object>({});
+
 	const formData = [
     {
       label: "I am *",
@@ -83,31 +85,6 @@ const Registration: React.FC = () => {
         ]
 			}
 		},
-    {
-			label: "Preferred Products",
-			props: {
-				name: "preferred_product",
-        type: "checkbox",
-        checkboxOptions : [
-          'Corn',
-          'Almond',
-          'Hazelnut',
-          'Triticale',
-          'Barley',
-          'Corn',
-          'Almond',
-          'Hazelnut',
-          'Triticale',
-        ]
-			}
-		},
-    {
-			label: "Other Preferred Products",
-			props: {
-				name: "preferred_product_other",
-        type: "text"
-			}
-		},
 		{
 			label: "Email",
 			required: true,
@@ -129,8 +106,12 @@ const Registration: React.FC = () => {
 		{
 			label: "Confirm Password (6 characters minimum)",
 			required: true,
+      requiredOptions: {
+        validate: (value: any) => {
+          console.log(value, registrationData);
+        }},
 			props: {
-				name: "password",
+				name: "confirm-password",
         type: "password",
         maxlength: 20,
         minlength: 6
@@ -149,10 +130,20 @@ const Registration: React.FC = () => {
 		}
 	];
 
+  const formDataCallBack = (data:any) => {
+    setRegistrationData(data);
+    console.log('formDataCallBack', data);
+  }
+
   return (
      <div>
-       <Form fields= {formData} title='Sign Up' subContent='If you are already registered Login here. Otherwise, tell us more about you! Your sign up information will help us providing a great experience.
-For sellers, additional information will be needed to receive funds.' />
+        <Form
+          fields= {formData}
+          title='Sign Up'
+          subContent='If you are already registered Login here. Otherwise, tell us more about you! Your sign up information will help us providing a great experience.
+  For sellers, additional information will be needed to receive funds.'
+          formDataCallBack = {formDataCallBack}
+        />
     </div>
   );
 };

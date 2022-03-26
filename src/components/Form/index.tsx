@@ -7,7 +7,7 @@ import { alertCircleOutline } from "ionicons/icons";
 import './form.css'
 
 export const Form =  ({ ...props }) => {
-  const [formData, setFormData] = useState<string>('');
+  const [formData, setFormData] = useState<Object>({});
 
   const { register, handleSubmit, formState: { errors } } = useForm({
 		mode: "onTouched",
@@ -15,27 +15,33 @@ export const Form =  ({ ...props }) => {
 	});
 
   const updateData = (data: any) => {
-    const formArr = formData;
+    setFormData({ [data.target.name]: data.target.value });
+  }
 
-    console.log('updateData', data, data.target.name);
+  const updateCheckboxData = (data: any) => {
+    setFormData({ [data.target.name]: [data.target.value] });
+    console.log(data, formData);
   }
 
   const onSubmit = (data: any) => {
-    console.log(data);
+    let finalData = {...data, ...formData};
+    props.formDataCallBack(finalData);
+
   }
 
   return (
     <>
-      <h3 className='x-15'> {props.title}</h3>
-      <div className='x-15'>{props.subContent}</div>
+      {props.title && <h3 className='x-15'> {props.title}</h3>}
+      {props.subContent && <div className='x-15'>{props.subContent}</div>}
+
       <form onSubmit={ handleSubmit(onSubmit) } className="forms">
         { props.fields.map((field: any, index: any) => {
           const { label, required, requiredOptions, props } = field;
 
           return (
             <IonItem key={ `form_field_${ index }` }>
-                {props.type === 'radio' &&
-                  <IonRadioGroup className="radio-container" name={props.name} key={props.type} onIonChange={e => updateData(e)}>
+                 {props.type === 'radio' &&
+                  <IonRadioGroup className="radio-container" name={props.name} onIonChange={e => updateData(e)}>
                     {label && <IonLabel className="space-20" position="stacked">{ label } </IonLabel>}
                     { props.radioOptions.map((item: any, i: any) => {
                       return (
@@ -50,7 +56,7 @@ export const Form =  ({ ...props }) => {
                 {props.type === 'select' &&
                   <>
                     {label && <IonLabel className="space-20" position="stacked">{ label } </IonLabel>}
-                    <IonSelect key={props.type} placeholder="Select One" onIonChange={e => updateData(e)} { ...register(props.name, { required, ...requiredOptions }) }>
+                    <IonSelect key={props.type} placeholder="Select One" { ...register(props.name, { required, ...requiredOptions }) }>
                       { props.optionsData.map((item: any, s: any) => {
                         return (
                           <IonSelectOption key={`selectoption_${s}`} value={item.code}>{item.value}</IonSelectOption>

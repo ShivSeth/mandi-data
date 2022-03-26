@@ -1,15 +1,12 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import Login from '../components/Login';
+import Header from '../components/Header';
 import './Tab2.css';
 
 const Tab2: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Login</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+        <Header />
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
