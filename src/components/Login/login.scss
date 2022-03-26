@@ -2,7 +2,7 @@
     border: 1px solid transparent;
     border-radius: 20px;
     box-shadow: 0 0px 5px #58A827;
-    margin: 150px 10px 0;
+    margin: 50px 10px 0;
 
     .login-heading {
         background: #58A827;
@@ -20,6 +20,9 @@
     }
     .label-stacked{
         transform: none;
+    }
+    .form-submit-btn{
+        margin: 20px;
     }
     .login-error{
         color: red;

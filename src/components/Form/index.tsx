@@ -37,7 +37,7 @@ export const Form =  ({ ...props }) => {
       <form onSubmit={ handleSubmit(onSubmit) } className="forms">
         { props.fields.map((field: any, index: any) => {
           const { label, required, requiredOptions, props } = field;
-
+          const labelPosition = props.labelPosition || "stacked";
           return (
             <IonItem key={ `form_field_${ index }` }>
                  {props.type === 'radio' &&
@@ -84,7 +84,7 @@ export const Form =  ({ ...props }) => {
                 }
                 {props.type !== 'radio' && props.type !== 'select' && props.type !== 'checkbox' &&
                   <>
-                    {label && <IonLabel className="space-20" position="stacked">{ label } </IonLabel>}
+                    {label && <IonLabel className="space-20" position={labelPosition}>{ label } </IonLabel>}
                     <IonInput className='input-element' { ...props } { ...register(props.name, { required, ...requiredOptions }) } />
                   </>
                 }
@@ -93,7 +93,7 @@ export const Form =  ({ ...props }) => {
           );
         })}
 
-        <IonButton type="submit" className="ion-margin-top" expand="full">{props.submitLabel}</IonButton>
+        <IonButton type="submit" className="ion-margin-top form-submit-btn" expand="full">{props.submitLabel}</IonButton>
       </form>
     </>
   );
