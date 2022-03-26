@@ -6,6 +6,8 @@ import Search from '../components/Search';
 import SlidingCards from '../components/SlidingCards';
 import { isEmpty } from "lodash";
 import './Tab1.css';
+import Profile from './Profile';
+import UserDetails from './UserDetails';
 const Tab1: React.FC = () => {
     return (
         <IonPage>
@@ -19,6 +21,7 @@ const Tab1: React.FC = () => {
         <MyCarousel/>
         <SlidingCards />
         <Search />
+        <Profile/>
       </IonContent>
     </IonPage>
     );
