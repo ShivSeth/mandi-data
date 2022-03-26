@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { APIService } from '../../Services/api';
 import {Form} from '../Form';
 
 const Registration: React.FC = () => {
   const [registrationData, setRegistrationData] = useState<Object>({});
-
+  const password = useRef({});
 	const formData = [
     {
       label: "I am *",
@@ -12,6 +12,7 @@ const Registration: React.FC = () => {
 			props: {
 				name: "userType",
         type: "radio",
+        selected: 'Seller',
         radioOptions : [
           'Buyer',
           'Seller'
@@ -111,7 +112,7 @@ const Registration: React.FC = () => {
           console.log(value, registrationData);
         }},
 			props: {
-				name: "confirm-password",
+				name: "confirmPassword",
         type: "password",
         maxlength: 20,
         minlength: 6
@@ -131,7 +132,67 @@ const Registration: React.FC = () => {
 	];
 
   const formDataCallBack = (data:any) => {
+    delete data.confirmPassword;
     setRegistrationData(data);
+    let submitData={};
+    let positionLat= 0, positionLong=0;
+
+    const submitDataBuyer = {
+      "name": data.firstname+ ' '+data.lastName,
+      "email": data.email,
+      "password": data.password,
+      "mobile": data.mobile_number,
+      "language": data.preferred_language,
+      "address": {
+          "pincode": data.postal_code,
+          "country": data.country,
+          "state": "Haryana",
+          "fullAddress": data.address
+      }
+    }
+
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        positionLat = position.coords.latitude;
+        positionLong  = position.coords.longitude;
+      });
+    }
+
+    const submitDataSeller = {
+      "name": data.firstname+ ' '+data.lastName,
+      "email": data.email,
+      "password": data.password,
+      "mobile": data.mobile_number,
+      "language": data.preferred_language,
+      "address": {
+          "pincode": data.postal_code,
+          "country": data.country,
+          "state": "Haryana",
+          "fullAddress": data.address
+      },
+      "location": {
+        "type": "Point",
+        "coordinates": [positionLong, positionLat],
+      },
+    }
+
+    let url = ''
+    if(data.userType === "Seller") {
+      url = 'https://backend-hackathon.herokuapp.com/api/farmer/register';
+      submitData=submitDataSeller;
+    } else {
+      submitData=submitDataBuyer
+      url = 'https://backend-hackathon.herokuapp.com/api/buyer/register';
+    }
+
+    APIService.axiosCall(url, {
+      method: "POST",
+      data: submitData,
+      successCallback: (resp:any) => {
+        console.log(resp);
+      },
+      errorCallback: (err:any) => console.log(err)
+    });
     console.log('formDataCallBack', data);
   }
 
@@ -139,7 +200,6 @@ const Registration: React.FC = () => {
      <div>
         <Form
           fields= {formData}
-          title='Sign Up'
           subContent='If you are already registered Login here. Otherwise, tell us more about you! Your sign up information will help us providing a great experience.
   For sellers, additional information will be needed to receive funds.'
           formDataCallBack = {formDataCallBack}
