@@ -1,27 +1,24 @@
 import React, {useState, useEffect } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import {IonSearchbar, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import SearchBar from '../components/SearchBar';
 import { APIService } from '../Services/api';
 import { isEmpty } from "lodash";
 import './Tab1.css';
 
 const Tab1: React.FC = () => {
-
-  const [searchData, setSearchData] = useState("");
   const [dataList, setDataList] = useState([{
     name: '',
     email: ''
   }]);
 
-  const searchDataCallback = (res:any) => {
-    setSearchData(res);
-  };
 
-  const getList = () => {
-    APIService.axiosCall(`https://jsonplaceholder.typicode.com/users`, {
-      method: "GET",
-      successCallBack: (resp:any) => handleResponse(resp),
-    });
+  const getList = (text:string) => {
+    if(text.length >= 3) {
+      APIService.axiosCall(`https://jsonplaceholder.typicode.com/users`, {
+        method: "GET",
+        successCallBack: (resp:any) => handleResponse(resp),
+      });
+    }
   };
 
   const handleResponse = (response:any) => {
@@ -41,10 +38,7 @@ const Tab1: React.FC = () => {
             <IonTitle size="large">Search</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <SearchBar inputText={searchDataCallback}
-        onClick={getList}
-        disabled={searchData.length < 3 ? true : false}
-        dataTest = "searchBar" />
+        <IonSearchbar onIonChange={e => getList(e.detail.value!)}/>
         <IonContent>
         {!isEmpty(dataList) &&
           dataList.map((data, i) => (
