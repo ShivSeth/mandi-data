@@ -7,8 +7,8 @@ import { APIService } from '../../Services/api';
 import './login.css';
 
 const Login: React.FC = () => {
-    const loginApiFarmer = "https://backend-hackathon.herokuapp.com/api/products/api/farmer",
-        loginApiBuyer = "https://backend-hackathon.herokuapp.com/api/products/api/buyer";
+    const loginApiFarmer = "https://backend-hackathon.herokuapp.com/api/farmer",
+        loginApiBuyer = "https://backend-hackathon.herokuapp.com/api/buyer";
     const [showErrorMsg, setShowErrorMsg] = useState(false);
 
     const loginData = [{
@@ -63,14 +63,16 @@ const Login: React.FC = () => {
     		api = loginApiBuyer;
     	}
         APIService.axiosCall(api, {
-            method: "GET",
-            data: {...{userType:"Seller"}, ...data},
+            method: "POST",
+            data: data,
             successCallBack: (resp: any) => handleResponse(resp),
             errorCallBack: (error: any) => loginError(error)
         });
     };
     const handleResponse = (response: any) => {
-        setShowErrorMsg(false);
+        localStorage.setItem('token', 'sdfsdfsdfd');
+        localStorage.setItem('isLogin', 'true');
+
 
     };
     const loginError = (error: any) => {
