@@ -1,52 +1,78 @@
-import React, {useState, useEffect } from 'react';
-import {IonSearchbar, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import React, { useState, useEffect } from 'react';
+import { IonGrid, IonRow, IonCol,IonSearchbar, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSlides, IonSlide, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent } from '@ionic/react';
 import Header from '../components/Header';
-import { APIService } from '../Services/api';
+import MyCarousel from '../components/MyCarousel';
+import Search from '../components/Search';
 import { isEmpty } from "lodash";
 import './Tab1.css';
-
 const Tab1: React.FC = () => {
-  const [dataList, setDataList] = useState([{
-    name: '',
-    email: ''
-  }]);
-
-
-  const getList = (text:string) => {
-    if(text.length >= 3) {
-      APIService.axiosCall(`https://jsonplaceholder.typicode.com/users`, {
-        method: "GET",
-        successCallBack: (resp:any) => handleResponse(resp),
-      });
-    }
-  };
-
-  const handleResponse = (response:any) => {
-    setDataList(response.data);
-  };
-
-  return (
-    <IonPage>
-      <Header  />
+    const slideOpts = {
+        initialSlide: 1,
+        speed: 400
+    };
+    return (
+        <IonPage>
+      <Header />
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Search</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonSearchbar onIonChange={e => getList(e.detail.value!)}/>
-        <IonContent>
-        {!isEmpty(dataList) &&
-          dataList.map((data, i) => (
-            <div key={i}>
-              {data.name} {data.email}
-            </div>
-          ))
-        }
-        </IonContent>
+        <MyCarousel></MyCarousel>
+        <IonSlides pager={false} options={slideOpts} className="my-5">
+            <IonSlide>
+              <IonCard>
+                <IonGrid>
+                  <IonRow>
+                    <IonCol>
+                    <img src="./assets/images/7.jpeg" />
+                    </IonCol>
+                    <IonCol>
+                    <IonCardTitle>
+                       Keep close to Nature's heart... and break clear away, once in awhile.
+                       </IonCardTitle>
+                    </IonCol>
+                  </IonRow>
+              </IonGrid>
+            </IonCard>
+            </IonSlide>
+            <IonSlide>
+             <IonCard>
+                <IonGrid>
+                  <IonRow>
+                    <IonCol>
+                    <img src="./assets/images/7.jpeg" />
+                    </IonCol>
+                    <IonCol>
+                     <IonCardTitle>
+                       Provides a web directory of more than 100 land-grant colleges
+                       </IonCardTitle>
+                    </IonCol>
+                  </IonRow>
+              </IonGrid>
+            </IonCard>
+            </IonSlide>
+            <IonSlide>
+              <IonCard>
+                <IonGrid>
+                  <IonRow>
+                    <IonCol>
+                    <img src="./assets/images/7.jpeg" />
+                    </IonCol>
+                    <IonCol>
+                     <IonCardTitle>
+                       Gathers and compiles a broad range of empirical data related.
+                       </IonCardTitle>
+                    </IonCol>
+                  </IonRow>
+              </IonGrid>
+            </IonCard>
+            </IonSlide>
+          </IonSlides>
+        <Search></Search>
       </IonContent>
     </IonPage>
-  );
+    );
 };
-
 export default Tab1;

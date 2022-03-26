@@ -2,9 +2,10 @@
   display: flex;
   justify-content: space-between;
   padding: 0 15px;
-
+  background: #fff;
+  box-shadow: 0 5px 5px 5px #0000002e;
   &-icons {
-    height: 43px;
+    height: 45px;
     color: #58A827;
   }
 
