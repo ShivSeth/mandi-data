@@ -203,6 +203,7 @@ const Registration: React.FC = () => {
           subContent='If you are already registered Login here. Otherwise, tell us more about you! Your sign up information will help us providing a great experience.
   For sellers, additional information will be needed to receive funds.'
           formDataCallBack = {formDataCallBack}
+          submitLabel="Submit"
         />
     </div>
   );

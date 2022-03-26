@@ -14,6 +14,26 @@
         span{
         	vertical-align: top;
         }
+    }
+    .button-block{
+        margin: 20px;
+    }
+    .label-stacked{
+        transform: none;
+    }
+    .login-error{
+        color: red;
+        font-size: 20px;
+        padding: 20px 10px;
+        background: #ede5e552;
+        margin: 10px;
+        border: 1px solid #f0b8b8;
+        border-radius: 10px;
+        display: flex;
+        .msg{
+            vertical-align: top;
+            margin-left: 10px;
+        }
 
     }
 }

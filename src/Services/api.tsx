@@ -1,5 +1,7 @@
 import axios from 'axios';
+import { IonLoading } from '@ionic/react';
 
+import { personCircleOutline } from "ionicons/icons";
 const axiosCall = async (url: string, config: any) => {
   const XhrRes = await axios(url, config)
       .then(function(response:any) {
