@@ -1,10 +1,10 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import Registration from '../components/Registration';
 import Header from '../components/Header';
-import Profile from './Profile';
 import './Tab3.css';
+import Profile from './Profile';
 
-const Tab3: React.FC = () => {
+const Tab4: React.FC = () => {
   return (
     <IonPage>
        <Header />
@@ -14,10 +14,10 @@ const Tab3: React.FC = () => {
             <IonTitle size="large">Sign Up</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <Registration/>
+        <Profile/>
       </IonContent>
     </IonPage>
   );
 };
 
-export default Tab3;
+export default Tab4;

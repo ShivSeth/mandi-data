@@ -7,7 +7,6 @@ import SlidingCards from '../components/SlidingCards';
 import SocialShare from '../components/SocialShare';
 import { isEmpty } from "lodash";
 import './Tab1.css';
-import Profile from './Profile';
 const Tab1: React.FC = () => {
     return (
         <IonPage>
@@ -21,7 +20,6 @@ const Tab1: React.FC = () => {
         <MyCarousel/>
         <SlidingCards />
         <Search />
-        <Profile/>
         <SocialShare />
       </IonContent>
     </IonPage>
