@@ -1,7 +1,9 @@
 import React from 'react'
 import { IonButton, IonButtons, IonCard, IonCardContent, IonInput, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonRow, IonText, IonToolbar,  IonAccordionGroup, IonAccordion, IonItem, IonLabel, IonList, IonPage  } from '@ionic/react';
 import { arrowBackOutline, arrowForward, bookmarkOutline, chatboxEllipsesOutline, ellipsisHorizontal, imageOutline, personAddOutline } from "ionicons/icons";
+import {Form} from '../components/Form';
 const Profile = () => {
+  
   return (
     <IonRow className="ion-justify-content-center">
       <IonCol size="12" className="ion-justify-content-center ion-align-items-center ion-text-center">
@@ -19,7 +21,7 @@ const Profile = () => {
         <IonCardContent>
               <IonItem className='ion-text-center'>
                 <IonLabel>
-                  Nand Kishor
+                  Nand Kishore
                 </IonLabel>
               </IonItem>
             </IonCardContent>
@@ -34,17 +36,29 @@ const Profile = () => {
       
             <IonList slot="content">
             <IonItem>
-            <IonLabel position="floating">First Name</IonLabel>
-            <IonInput value="Nand"></IonInput>
-          </IonItem>
-          <IonItem>
-            <IonLabel position="floating">Last Name</IonLabel>
-            <IonInput value="Kishor"></IonInput>
-          </IonItem>
-          <IonItem>
-            <IonLabel position="floating">Email</IonLabel>
-            <IonInput value=" kush2kkis@gmail.com"></IonInput>
-          </IonItem>
+              <IonLabel>Name: </IonLabel>
+              <IonLabel>
+              <IonText>Nand Kishore</IonText>
+              </IonLabel>
+            </IonItem>
+            <IonItem>
+              <IonLabel>Email: </IonLabel>
+              <IonLabel>
+              <IonText>nandkishore@gmail.com</IonText>
+              </IonLabel>
+            </IonItem>
+            <IonItem>
+              <IonLabel>Phone Number: </IonLabel>
+              <IonLabel>
+              <IonText>+1 1234567890</IonText>
+              </IonLabel>
+            </IonItem>
+            <IonItem>
+              <IonLabel>I am a: </IonLabel>
+              <IonLabel>
+              <IonText>Farmer</IonText>
+              </IonLabel>
+            </IonItem>
             </IonList>
           </IonAccordion>
           <IonAccordion value="companyInformation">
