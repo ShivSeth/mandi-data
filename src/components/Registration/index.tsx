@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import { APIService } from '../../Services/api';
 import {Form} from '../Form';
 
+import './register.css'
+
 const Registration: React.FC = () => {
   const [registrationData, setRegistrationData] = useState<Object>({});
   const password = useRef({});
@@ -146,7 +148,6 @@ const Registration: React.FC = () => {
       "address": {
           "pincode": data.postal_code,
           "country": data.country,
-          "state": "Haryana",
           "fullAddress": data.address
       }
     }
@@ -167,7 +168,6 @@ const Registration: React.FC = () => {
       "address": {
           "pincode": data.postal_code,
           "country": data.country,
-          "state": "Haryana",
           "fullAddress": data.address
       },
       "location": {
@@ -198,10 +198,11 @@ const Registration: React.FC = () => {
 
   return (
      <div>
+        <h6 className='subtitleForm'>If you are already registered <a href="/tab2">Login here.</a> Otherwise, tell us more about you! Your sign up information will help us providing a great experience.
+  For sellers, additional information will be needed to receive funds.</h6>
         <Form
           fields= {formData}
-          subContent='If you are already registered Login here. Otherwise, tell us more about you! Your sign up information will help us providing a great experience.
-  For sellers, additional information will be needed to receive funds.'
+
           formDataCallBack = {formDataCallBack}
           submitLabel="Submit"
         />

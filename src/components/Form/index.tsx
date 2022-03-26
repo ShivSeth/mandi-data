@@ -72,7 +72,7 @@ export const Form =  ({ ...props }) => {
                     {label && <IonLabel className="space-20" position="stacked">{ label } </IonLabel>}
                     { props.checkboxOptions.map((item: any, c: any) => {
                       return (
-                          <IonList key={`checkbox_${c}`} className='radio-container'>
+                          <IonList key={`checkbox_${c}`} className='radio-container' lines='none'>
                             <IonItem key={`checkbox_item_${c}`} class="ion-no-padding" lines='none'>
                               <IonLabel >{item}</IonLabel>
                               <IonCheckbox slot="start" key={`checkbox_${c}`} value={item} { ...register(props.name, { required, ...requiredOptions }) }/>
