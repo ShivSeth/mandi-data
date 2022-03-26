@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import {IonSearchbar, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import SearchBar from '../components/SearchBar';
+import Header from '../components/Header';
 import { APIService } from '../Services/api';
 import { isEmpty } from "lodash";
 import './Tab1.css';
@@ -27,11 +27,7 @@ const Tab1: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Search</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Header  />
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>

@@ -1,0 +1,14 @@
+.bar-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+
+  &-icons {
+    height: 43px;
+    color: #58A827;
+  }
+
+  &-logo-img {
+    height: 50px;
+  }
+}
