@@ -93,7 +93,7 @@ export const Form =  ({ ...props }) => {
           );
         })}
 
-        <IonButton type="submit" className="ion-margin-top" expand="full">Submit</IonButton>
+        <IonButton type="submit" className="ion-margin-top" expand="full">{props.submitLabel}</IonButton>
       </form>
     </>
   );
