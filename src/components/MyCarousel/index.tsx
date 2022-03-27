@@ -9,7 +9,7 @@ export const MyCarousel = ({carouselProps = {}}) => {
         showStatus: false
     }, ...carouselProps };
 
-    
+
     return (
         <Carousel {...config}>
 
@@ -17,10 +17,10 @@ export const MyCarousel = ({carouselProps = {}}) => {
                     <img src="./assets/images/5.jpeg" />
                     {/*<p className="legend">Legend 1</p>*/}
                 </div>
-                <div>
+                {/* <div>
                     <img src="./assets/images/1.avif" />
-                    {/*<p className="legend">Legend 1</p>*/}
-                </div>
+                    {<p className="legend">Legend 1</p>}
+                </div> */}
                 <div>
                     <img src="./assets/images/1.jpeg" />
                     {/*<p className="legend">Legend 1</p>*/}

@@ -184,11 +184,11 @@ const Registration: React.FC = () => {
 
     let url = ''
     if(data.userType === "Seller") {
-      url = 'http://localhost:4000/api/farmer/register';
+      url = 'https://backend-hackathon.herokuapp.com/api/farmer/register';
       submitData=submitDataSeller;
     } else {
       submitData=submitDataBuyer
-      url = 'http://localhost:4000/api/buyer/register';
+      url = 'https://backend-hackathon.herokuapp.com/api/buyer/register';
     }
 
     APIService.axiosCall(url, {
