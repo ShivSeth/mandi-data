@@ -7,10 +7,12 @@ export const SlidingCards = ({ lists = [] }) => {
         speed: 100
     };
     return (
-        <IonSlides pager={true} options={slideOpts} className="my-5">
+      <div className="my-5">
+      <IonCardTitle className="ml-2">Government program </IonCardTitle>
+        <IonSlides pager={true} options={slideOpts} >
             <IonSlide>
               <IonCard>
-                <IonGrid>
+                <IonGrid className="pad-0">
                   <IonRow>
                     <IonCol>
                     <img src="./assets/images/7.jpeg" />
@@ -26,10 +28,10 @@ export const SlidingCards = ({ lists = [] }) => {
             </IonSlide>
             <IonSlide>
              <IonCard>
-                <IonGrid>
+                <IonGrid className="pad-0">
                   <IonRow>
                     <IonCol>
-                    <img src="./assets/images/7.jpeg" />
+                    <img src="./assets/images/11.jpeg" />
                     </IonCol>
                     <IonCol>
                      <IonCardSubtitle>
@@ -42,10 +44,10 @@ export const SlidingCards = ({ lists = [] }) => {
             </IonSlide>
             <IonSlide>
               <IonCard>
-                <IonGrid>
+                <IonGrid className="pad-0">
                   <IonRow>
                     <IonCol>
-                    <img src="./assets/images/7.jpeg" />
+                    <img src="./assets/images/12.jpeg" />
                     </IonCol>
                     <IonCol>
                      <IonCardSubtitle>
@@ -57,6 +59,7 @@ export const SlidingCards = ({ lists = [] }) => {
             </IonCard>
             </IonSlide>
           </IonSlides>
+          </div>
     );
 };
 

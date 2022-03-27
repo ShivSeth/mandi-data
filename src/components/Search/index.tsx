@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import {IonSearchbar} from '@ionic/react';
-import { IonItem, IonLabel, IonIcon, IonModal } from '@ionic/react';
+import { IonItem, IonLabel, IonIcon, IonModal, IonCardTitle } from '@ionic/react';
 import { filterOutline } from 'ionicons/icons';
 import PostList from '../PostList';
 import Pagination from '../Pagination';
@@ -60,6 +60,8 @@ const Search: React.FC = () => {
 
 
   return (
+     <div className="my-5">
+      <IonCardTitle className="ml-2">Grain List</IonCardTitle>
     <div className="f-search">
       <IonSearchbar onIonChange={e => userSearch(e.detail.value!)}/>
       <div className="filter-section">
@@ -72,6 +74,7 @@ const Search: React.FC = () => {
          <FilterLayout {...filterProps} />
       </IonModal>
       <Pagination {...paginationProps} />
+    </div>
     </div>
   );
 };

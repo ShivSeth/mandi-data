@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {IonCardTitle} from '@ionic/react';
 import ReactECharts from 'echarts-for-react';
 import './inside-charts.css';
 
@@ -62,7 +63,10 @@ const InsideCharts = () => {
   };
 
   return (
+     <div className="my-5">
+      <IonCardTitle className="ml-2">Sales chart</IonCardTitle>
     <div className="inside-charts">
+    
       <ReactECharts
         option={options}
         onChartReady={onChartReady}
@@ -71,6 +75,7 @@ const InsideCharts = () => {
           'legendselectchanged': onChartLegendselectchanged
          }}
       />
+    </div>
     </div>
   );
 };
