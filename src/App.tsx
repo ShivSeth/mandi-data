@@ -41,7 +41,7 @@ const islogin = !!localStorage.getItem('isLogin');
 
 const App: React.FC = () => (
 
-  <IonApp>
+  <IonApp className='m-35'>
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
@@ -66,7 +66,7 @@ const App: React.FC = () => (
             <IonIcon icon={homeOutline} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
-          {!islogin && 
+          {!islogin &&
           <IonTabButton tab="tab2" href="/tab2">
             <IonIcon icon={personCircleOutline} />
             <IonLabel>Login</IonLabel>
@@ -76,7 +76,7 @@ const App: React.FC = () => (
             <IonLabel>New User</IonLabel>
           </IonTabButton>
         }
-        {!!islogin && 
+        {!!islogin &&
           <IonTabButton tab="tab2" href="/tab2">
             <IonIcon icon={personCircleOutline} />
             <IonLabel>Profile</IonLabel>

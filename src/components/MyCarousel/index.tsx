@@ -18,10 +18,6 @@ export const MyCarousel = ({carouselProps = {}}) => {
                     {/*<p className="legend">Legend 1</p>*/}
                 </div>
                 <div>
-                    <img src="./assets/images/1.avif" />
-                    {/*<p className="legend">Legend 1</p>*/}
-                </div>
-                <div>
                     <img src="./assets/images/1.jpeg" />
                     {/*<p className="legend">Legend 1</p>*/}
                 </div>
