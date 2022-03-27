@@ -10,11 +10,12 @@ const Tab2: React.FC = () => {
     <IonPage>
         <Header />
       <IonContent fullscreen>
-        <IonHeader className="my-10">
+      {islogin ? <IonHeader className="my-10">
           <IonToolbar>
-            <IonTitle size="large">{islogin ? 'My Profile' : 'Login'}</IonTitle>
+            <IonTitle size="large">My Profile</IonTitle>
           </IonToolbar>
-        </IonHeader>
+        </IonHeader> : null}
+        
         {!islogin && <Login />}
         {!!islogin && <Profile />}
       </IonContent>

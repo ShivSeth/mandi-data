@@ -6,6 +6,13 @@
     top: 35px;
 }
 
+.new-post{
+    position: absolute;
+    top: -85px;
+    z-index: 12;
+    right: 10px;
+}
+
 .cus-loader {
 	display: none;
     position: fixed;

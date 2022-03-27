@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react';
-import {IonSearchbar} from '@ionic/react';
+import {IonButton, IonSearchbar} from '@ionic/react';
 import { IonModal, IonCardTitle } from '@ionic/react';
 import { filterOutline, pencil, trashBin } from 'ionicons/icons';
 import PostList from '../components/PostList';
@@ -13,7 +13,7 @@ let userData = null;
 
     userData = localStorage.getItem('userData');
   const data = userData && JSON.parse(userData);
-const Favourite = () => {
+const Favourite = (props:any) => {
   const resultLimit = 5;
   const [dataList, setDataList] = useState([]);
   const [allDataList, setAllDataList] = useState([]);
@@ -43,10 +43,16 @@ const Favourite = () => {
      <div className="my-5">
       {/* <IonCardTitle className="ml-2">Grain List</IonCardTitle> */}
     <div className="f-search">
+    <IonLabel>
+      <a href='/tab5' className='new-post'>
+      <IonButton expand="block" color="success"
+>New Post</IonButton>
+      </a>
+    </IonLabel>
     <IonAccordionGroup value="favouriteLists">
           <IonAccordion value="favouriteLists">
             <IonItem slot="header">
-              <IonCardTitle className="ml-2">Favourites</IonCardTitle>
+              <IonCardTitle className="ml-2">My Favourites</IonCardTitle>
             </IonItem>
 
             <IonList slot="content">
@@ -64,7 +70,7 @@ const Favourite = () => {
                     <IonCard key={`index-${i}`}>
               <IonCardHeader>
                 <IonCardSubtitle >{list.product} 
-                 <div className={`fav-icon`}><IonIcon size="large" icon={pencil}/> <IonIcon size="large" icon={trashBin}/></div>
+                 <div className={`fav-icon`}><IonIcon size="large" icon={pencil}/> <IonIcon size="large" className={`trash-icon`} icon={trashBin}/></div>
                   </IonCardSubtitle>
                 <IonCardTitle >{list.category} - {list.variety} </IonCardTitle>
               </IonCardHeader>
@@ -98,6 +104,7 @@ const Favourite = () => {
             </IonList>
           </IonAccordion>
         </IonAccordionGroup>
+        
     </div>
     </div>
   );
