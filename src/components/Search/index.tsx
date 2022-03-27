@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import {IonSearchbar} from '@ionic/react';
 import { IonItem, IonLabel, IonIcon, IonModal } from '@ionic/react';
+import { filterOutline } from 'ionicons/icons';
 import PostList from '../PostList';
 import Pagination from '../Pagination';
 import FilterLayout from '../FilterLayout';
@@ -63,7 +64,7 @@ const Search: React.FC = () => {
       <IonSearchbar onIonChange={e => userSearch(e.detail.value!)}/>
       <div className="filter-section">
         <div className="result-count left">{`Results ${startListNumber} - ${endListNumber} of ${dataList.length}`}</div>
-        <div className="filter right" onClick={()=>setFilterOpen(true)} >Filter</div>
+        <div className="filter right" onClick={()=>setFilterOpen(true)} ><IonIcon icon={filterOutline} />&nbsp;Filter</div>
       </div>
 
       <PostList lists={dataList} />
