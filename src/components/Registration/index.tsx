@@ -193,7 +193,7 @@ const Registration: React.FC = () => {
     APIService.axiosCall(url, {
       method: "POST",
       data: submitData,
-      successCallback: (resp:any) => {
+      successCallBack: (resp:any) => {
         console.log(resp);
         if(resp) {
           setShowToast(true);
@@ -209,23 +209,18 @@ const Registration: React.FC = () => {
   };
 
   return (
-     <div>
+     <div className='register-page'>
         <IonToast
         isOpen={showToast}
+        position={'middle'}
+        cssClass={'success-toast'}
         onDidDismiss={() => setShowToast(false)}
         message="Thank you. We are delighted to have you with us, User is registered successfully.
         Please check you inbox for confirmation email and try logging in."
-        duration={200}
+        duration={50000}
       />
 
-        {showErrorMsg && <div className="login-error">
-         <span>
-            <IonIcon icon={alertCircleOutline} size="large"></IonIcon>
-         </span>
-         <span className="msg">
-         	  Service is down, Please try again later.
-         </span>
-         </div>}
+
         <h6 className='subtitleForm'>If you are already registered <a href="/tab2">Login here.</a> Otherwise, tell us more about you! Your sign up information will help us providing a great experience.
   For sellers, additional information will be needed to receive funds.</h6>
         <Form
@@ -234,6 +229,14 @@ const Registration: React.FC = () => {
           formDataCallBack = {formDataCallBack}
           submitLabel="Submit"
         />
+        {showErrorMsg && <div className="login-error">
+         <span>
+            <IonIcon icon={alertCircleOutline} size="large"></IonIcon>
+         </span>
+         <span className="msg">
+         	  Service is down, Please try again later.
+         </span>
+         </div>}
     </div>
   );
 };

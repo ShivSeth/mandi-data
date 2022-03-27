@@ -9,7 +9,7 @@ const Tab3: React.FC = () => {
     <IonPage>
        <Header />
       <IonContent fullscreen>
-        <IonHeader >
+        <IonHeader className="my-10">
           <IonToolbar>
             <IonTitle size="large">Sign Up</IonTitle>
           </IonToolbar>
