@@ -77,7 +77,7 @@ const App: React.FC = () => (
           </IonTabButton>
         }
         {!!islogin && 
-          <IonTabButton tab="tab2" href="/Profile">
+          <IonTabButton tab="tab2" href="/tab2">
             <IonIcon icon={personCircleOutline} />
             <IonLabel>Profile</IonLabel>
           </IonTabButton>}
@@ -86,9 +86,6 @@ const App: React.FC = () => (
             <IonLabel>New User</IonLabel>
           </IonTabButton>
         }
-        <IonTabButton tab="tab4" href="/tab4">
-        <IonLabel>User Profile</IonLabel>
-        </IonTabButton>
         </IonTabBar>
       </IonTabs>
     </IonReactRouter>

@@ -16,9 +16,9 @@ export const SlidingCards = ({ lists = [] }) => {
                     <img src="./assets/images/7.jpeg" />
                     </IonCol>
                     <IonCol>
-                    <IonCardTitle>
+                    <IonCardSubtitle>
                        Keep close to Nature's heart... and break clear away, once in awhile.
-                       </IonCardTitle>
+                       </IonCardSubtitle>
                     </IonCol>
                   </IonRow>
               </IonGrid>
@@ -32,9 +32,9 @@ export const SlidingCards = ({ lists = [] }) => {
                     <img src="./assets/images/7.jpeg" />
                     </IonCol>
                     <IonCol>
-                     <IonCardTitle>
+                     <IonCardSubtitle>
                        Provides a web directory of more than 100 land-grant colleges
-                       </IonCardTitle>
+                       </IonCardSubtitle>
                     </IonCol>
                   </IonRow>
               </IonGrid>
@@ -48,9 +48,9 @@ export const SlidingCards = ({ lists = [] }) => {
                     <img src="./assets/images/7.jpeg" />
                     </IonCol>
                     <IonCol>
-                     <IonCardTitle>
+                     <IonCardSubtitle>
                        Gathers and compiles a broad range of empirical data related.
-                       </IonCardTitle>
+                       </IonCardSubtitle>
                     </IonCol>
                   </IonRow>
               </IonGrid>

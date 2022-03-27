@@ -7,8 +7,8 @@ import { APIService } from '../../Services/api';
 import './login.css';
 
 const Login: React.FC = () => {
-    const loginApiFarmer = "https://backend-hackathon.herokuapp.com/api/farmer",
-        loginApiBuyer = "https://backend-hackathon.herokuapp.com/api/buyer";
+    const loginApiFarmer = "http://localhost:4000/api/farmer",
+        loginApiBuyer = "http://localhost:4000/api/buyer";
     const [showErrorMsg, setShowErrorMsg] = useState(false);
 
     const loginData = [{

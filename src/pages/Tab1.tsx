@@ -13,10 +13,9 @@ const Tab1: React.FC = () => {
         <IonPage>
       <Header />
       <IonContent>
-       
         <MyCarousel/>
-        <SlidingCards />
         <InsideCharts />
+        <SlidingCards />
         <Search />
         <SocialShare />
       </IonContent>

@@ -10,7 +10,7 @@ const Tab2: React.FC = () => {
     <IonPage>
         <Header />
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
+        <IonHeader>
           <IonToolbar>
             <IonTitle size="large">{islogin ? 'My Profile' : 'Login'}</IonTitle>
           </IonToolbar>
