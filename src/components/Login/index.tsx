@@ -72,6 +72,7 @@ const Login: React.FC = () => {
     const handleResponse = (response: any) => {
         localStorage.setItem('token', 'sdfsdfsdfd');
         localStorage.setItem('isLogin', 'true');
+        localStorage.setItem('userData', JSON.stringify(response.data));
 
     };
     const loginError = (error: any) => {

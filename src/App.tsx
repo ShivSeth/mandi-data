@@ -71,13 +71,13 @@ const App: React.FC = () => (
             <IonIcon icon={personCircleOutline} />
             <IonLabel>Login</IonLabel>
           </IonTabButton>}
-           {!islogin && <IonTabButton tab="tab3" href="/tab3">
+           {!islogin && <IonTabButton tab="tab3" href="/tab">
             <IonIcon icon={accessibilityOutline} />
             <IonLabel>New User</IonLabel>
           </IonTabButton>
         }
         {!!islogin &&
-          <IonTabButton tab="tab2" href="/tab4">
+          <IonTabButton tab="tab2" href="/tab2">
             <IonIcon icon={personCircleOutline} />
             <IonLabel>Profile</IonLabel>
           </IonTabButton>}

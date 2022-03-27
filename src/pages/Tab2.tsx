@@ -2,7 +2,9 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/rea
 import Login from '../components/Login';
 import Header from '../components/Header';
 import './Tab2.css';
+import Profile from './Profile';
 
+const islogin = !!localStorage.getItem('isLogin');
 const Tab2: React.FC = () => {
   return (
     <IonPage>
@@ -10,10 +12,11 @@ const Tab2: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Login</IonTitle>
+            <IonTitle size="large">{islogin ? 'My Profile' : 'Login'}</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <Login />
+        {!islogin && <Login />}
+        {!!islogin && <Profile />}
       </IonContent>
     </IonPage>
   );
