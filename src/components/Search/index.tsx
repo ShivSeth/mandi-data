@@ -9,7 +9,7 @@ import {round } from 'lodash';
 import './search.css';
 
 const Search: React.FC = () => {
-  const resultLimit = 10;
+  const resultLimit = 5;
   const [dataList, setDataList] = useState([]);
   const [filterOpen, setFilterOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,7 +19,7 @@ const Search: React.FC = () => {
     useEffect(()=>{
        getList();
     },[currentPage]);
-    
+
   const getList = () => {
       APIService.axiosCall(`https://backend-hackathon.herokuapp.com/api/post`, {
         method: "GET",
@@ -65,7 +65,7 @@ const Search: React.FC = () => {
         <div className="result-count left">{`Results ${startListNumber} - ${endListNumber} of ${dataList.length}`}</div>
         <div className="filter right" onClick={()=>setFilterOpen(true)} >Filter</div>
       </div>
-      
+
       <PostList lists={dataList} />
       <IonModal isOpen={filterOpen} >
          <FilterLayout {...filterProps} />

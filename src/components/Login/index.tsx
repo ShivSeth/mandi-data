@@ -73,7 +73,8 @@ const Login: React.FC = () => {
         localStorage.setItem('token', 'sdfsdfsdfd');
         localStorage.setItem('isLogin', 'true');
         localStorage.setItem('userData', JSON.stringify(response.data));
-
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
     };
     const loginError = (error: any) => {
         setShowErrorMsg(true);

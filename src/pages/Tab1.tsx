@@ -12,13 +12,13 @@ const Tab1: React.FC = () => {
         <IonPage>
       <Header />
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
+        {/* <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Search</IonTitle>
+            <IonTitle size="large"></IonTitle>
           </IonToolbar>
-        </IonHeader>
+        </IonHeader> */}
         <MyCarousel/>
-        <SlidingCards />
+        {/* <SlidingCards /> */}
         <Search />
         <SocialShare />
       </IonContent>
