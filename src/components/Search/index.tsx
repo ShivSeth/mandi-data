@@ -21,7 +21,7 @@ const Search: React.FC = () => {
     },[currentPage]);
 
   const getList = () => {
-      APIService.axiosCall(`https://backend-hackathon.herokuapp.com/api/post`, {
+      APIService.axiosCall(`http://localhost:4000/api/post`, {
         method: "GET",
         params: {q: searchText, limit:resultLimit, currentPage},
         successCallBack: (resp:any) => handleResponse(resp),

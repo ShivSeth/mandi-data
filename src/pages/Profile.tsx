@@ -2,7 +2,7 @@ import React from 'react'
 import { IonButton, IonButtons, IonCard, IonCardContent, IonInput, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonRow, IonText, IonToolbar, IonAccordionGroup, IonAccordion, IonItem, IonLabel, IonList, IonPage } from '@ionic/react';
 import { arrowBackOutline, arrowForward, bookmarkOutline, chatboxEllipsesOutline, ellipsisHorizontal, imageOutline, personAddOutline } from "ionicons/icons";
 import { Form } from '../components/Form';
-const Profile = () => {
+const Profile: React.FC = () => {
 
   const data = {
     "_id": "623ef700fcd782439c0156a6",
@@ -30,9 +30,7 @@ const Profile = () => {
     <IonRow className="ion-justify-content-center">
       <IonCol size="12" className="ion-justify-content-center ion-align-items-center ion-text-center">
         <IonCard>
-
           <IonCardHeader>
-
             <IonRow>
               <IonCol>
                 <img src="https://raw.githubusercontent.com/alanmontgomery/ionic-react-profile-dashboard-ui/6f364b95bd1140e02174be2694fa0a635dbae31d/public/assets/alan.jpg" alt="avatar" />
