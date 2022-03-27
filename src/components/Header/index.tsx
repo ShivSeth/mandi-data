@@ -2,37 +2,44 @@ import {
   IonIcon,
   IonHeader,
   IonImg,
-  IonModal,
-  IonList
+  IonList,
+  IonItem
 } from '@ionic/react';
-import { menuController } from "@ionic/core";
-import { menuOutline, homeOutline, closeOutline } from "ionicons/icons";
+import { menuOutline, homeOutline, closeOutline, personCircleOutline, logOut, notificationsOutline, briefcaseOutline, accessibilityOutline } from "ionicons/icons";
 import './header.css'
 import { useState } from 'react';
 
 const Header = () => {
-
   const [menuOpen, setMenuOpen] = useState(false);
-  const onClickHandler = () => {
-    setMenuOpen(true);
-  }
+  const onLogout = (flag: boolean) => {
+    setMenuOpen(flag);
+    localStorage.removeItem('token');
+    localStorage.removeItem('isLogin');
+    localStorage.removeItem('userData');
+    // eslint-disable-next-line no-restricted-globals
+    location.reload();
+  };
+
+  const islogin = !!localStorage.getItem('isLogin');
+
   return (
     <>
       <IonHeader>
         <div className = "bar bar-header bar-positive">
-          <IonIcon className="bar-header-icons" slot="start" icon={menuOutline} onClick={() => onClickHandler()} size="large" />
+          <IonIcon className="bar-header-icons burger-icon" slot="start" icon={!menuOpen ? menuOutline : closeOutline} onClick = {() => setMenuOpen(!menuOpen)} size="large" />
           <IonImg className="bar-header-logo-img" src={'/assets/logo.png'} />
           <IonIcon className="bar-header-icons" slot="end" icon={homeOutline} size="large" />
+
+          <IonList id="menu" className={`hamburger-menu ${menuOpen ? 'open' : 'close'}`}>
+            {islogin && <IonItem href="/tab2"><IonIcon className="menu-icon" icon={personCircleOutline}></IonIcon> My Profile</IonItem>}
+            {islogin && <IonItem href="/tab4"><IonIcon className="menu-icon" icon={briefcaseOutline}></IonIcon> My Order</IonItem>}
+            {islogin && <IonItem href="/tab4"><IonIcon className="menu-icon" icon={notificationsOutline}></IonIcon> Notifications</IonItem>}
+            {islogin && <IonItem onClick = {() => onLogout(!menuOpen)}><IonIcon className="menu-icon" icon={logOut}></IonIcon> Logout</IonItem>}
+            {!islogin && <IonItem href="/tab2"><IonIcon className="menu-icon" icon={personCircleOutline}></IonIcon> Login</IonItem>}
+            {!islogin && <IonItem href="/tab3"><IonIcon className="menu-icon" icon={accessibilityOutline}></IonIcon> New User</IonItem>}
+          </IonList>
         </div>
       </IonHeader>
-      <IonModal isOpen={menuOpen} >
-            <div className="f-close" onClick={(e)=>setMenuOpen(false)}>
-	       			<IonIcon icon={closeOutline} size="large"></IonIcon>
-	       		</div>
-         <IonList>Menu 1</IonList>
-         <IonList>Menu 2</IonList>
-         <IonList>Menu 3</IonList>
-      </IonModal>
     </>
   );
 };

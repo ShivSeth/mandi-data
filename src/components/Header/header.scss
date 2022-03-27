@@ -12,4 +12,41 @@
   &-logo-img {
     height: 50px;
   }
+
+  .menu-icon {
+    color: #58A827;
+    margin-right: 10px;
+  }
+
+  .burger-icon {
+    z-index: 10;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    text-align: left;
+    padding: 50px 0 0;
+    color: #58A827;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+
+    width: 100%;
+
+    & .in-list {
+      color: #58A827;
+    }
+
+    &.open {
+      transform: translateX(0);
+    }
+
+    &.close{
+      transform: translateX(-100%);
+    }
+  }
+
 }
