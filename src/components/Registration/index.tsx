@@ -78,6 +78,7 @@ const Registration: React.FC = () => {
         optionsData : [
           {'code': 'CA', value: 'Canada'},
           {'code': 'US', value: 'United States'},
+          {'code': 'IN', value: 'India'},
           {'code': 'MX', value: 'Mexico'},
         ]
 			}
