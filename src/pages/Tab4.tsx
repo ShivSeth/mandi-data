@@ -1,5 +1,5 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import Registration from '../components/Registration';
+
 import Header from '../components/Header';
 import './Tab3.css';
 import Profile from './Profile';
