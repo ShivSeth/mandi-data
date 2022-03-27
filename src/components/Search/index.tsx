@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import {IonSearchbar} from '@ionic/react';
-import { IonItem, IonLabel, IonIcon, IonModal, IonCardTitle } from '@ionic/react';
+import { IonIcon, IonModal, IonCardTitle } from '@ionic/react';
 import { filterOutline } from 'ionicons/icons';
 import PostList from '../PostList';
 import Pagination from '../Pagination';

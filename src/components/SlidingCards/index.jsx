@@ -1,5 +1,4 @@
-import { IonGrid, IonRow, IonCol,IonSlides, IonSlide, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContentss} from '@ionic/react';
-import { pin, wifi, wine, warning, walk } from 'ionicons/icons';
+import { IonGrid, IonRow, IonCol,IonSlides, IonSlide, IonCard,  IonCardSubtitle, IonCardTitle} from '@ionic/react';
 
 export const SlidingCards = ({ lists = [] }) => {
     const slideOpts = {
@@ -15,7 +14,7 @@ export const SlidingCards = ({ lists = [] }) => {
                 <IonGrid className="pad-0">
                   <IonRow>
                     <IonCol>
-                    <img src="./assets/images/7.jpeg" />
+                    <img alt='slide-1' src="./assets/images/7.jpeg" />
                     </IonCol>
                     <IonCol>
                      <IonCardSubtitle className="card-text">
@@ -31,7 +30,7 @@ export const SlidingCards = ({ lists = [] }) => {
                 <IonGrid className="pad-0">
                   <IonRow>
                     <IonCol>
-                    <img src="./assets/images/11.jpeg" />
+                    <img  alt='slide-2' src="./assets/images/11.jpeg" />
                     </IonCol>
                     <IonCol>
                      <IonCardSubtitle className="card-text">
@@ -47,7 +46,7 @@ export const SlidingCards = ({ lists = [] }) => {
                 <IonGrid className="pad-0">
                   <IonRow>
                     <IonCol>
-                    <img src="./assets/images/12.jpeg" />
+                    <img  alt='slide-3' src="./assets/images/12.jpeg" />
                     </IonCol>
                     <IonCol>
                       <IonCardSubtitle className="card-text">

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { IonItem, IonLabel, IonInput, IonButton, IonCheckbox, IonIcon, IonToast } from '@ionic/react';
+import React, { useState } from 'react';
+import { IonIcon } from '@ionic/react';
 import { personCircleOutline, alertCircleOutline } from "ionicons/icons";
 import { Form } from '../Form';
-import { useForm } from 'react-hook-form';
 import { APIService } from '../../Services/api';
 import './login.css';
 
@@ -70,7 +69,7 @@ const Login: React.FC = () => {
         });
     };
     const handleResponse = (response: any) => {
-        localStorage.setItem('token', 'sdfsdfsdfd');
+        localStorage.setItem('token', response.data.token);
         localStorage.setItem('isLogin', 'true');
         localStorage.setItem('userData', JSON.stringify(response.data));
         // eslint-disable-next-line no-restricted-globals

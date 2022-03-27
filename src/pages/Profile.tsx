@@ -1,30 +1,13 @@
 import React from 'react'
-import { IonButton, IonButtons, IonCard, IonCardContent, IonInput, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonRow, IonText, IonToolbar, IonAccordionGroup, IonAccordion, IonItem, IonLabel, IonList, IonPage } from '@ionic/react';
-import { arrowBackOutline, arrowForward, bookmarkOutline, chatboxEllipsesOutline, ellipsisHorizontal, imageOutline, personAddOutline } from "ionicons/icons";
-import { Form } from '../components/Form';
-const Profile: React.FC = () => {
+import {  IonCard, IonCardContent, IonCardHeader, IonCol, IonRow, IonText,  IonAccordionGroup, IonAccordion, IonItem, IonLabel, IonList, IonIcon } from '@ionic/react';
+import { trashOutline } from "ionicons/icons";
 
-  const data = {
-    "_id": "623ef700fcd782439c0156a6",
-    "name": "Ramesh Chand",
-    "email": "ramesh.chand@farmer.com",
-    "address": {
-        "pincode": "126112",
-        "country": "India",
-        "fullAddress": "Anchra Kalan"
-    },
-    "location": {
-        "type": "Point",
-        "coordinates": [
-            29.27021,
-            76.63847
-        ],
-        "_id": "623ef700fcd782439c0156a7"
-    },
-    "language": "English",
-    "mobile": "9874561235",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyM2VmNzAwZmNkNzgyNDM5YzAxNTZhNiIsImlhdCI6MTY0ODMzNjc1MywiZXhwIjoxNjUwOTI4NzUzfQ.58MYIWLil970XK9hyGploDl9V0WCpEsy8XVS6KJqfKs"
-}
+const Profile: React.FC = () => {
+  let userData = null;
+
+    userData = localStorage.getItem('userData');
+
+  const data = userData && JSON.parse(userData);
 
   return (
     <IonRow className="ion-justify-content-center">
@@ -33,7 +16,7 @@ const Profile: React.FC = () => {
           <IonCardHeader>
             <IonRow>
               <IonCol>
-                <img src="https://raw.githubusercontent.com/alanmontgomery/ionic-react-profile-dashboard-ui/6f364b95bd1140e02174be2694fa0a635dbae31d/public/assets/alan.jpg" alt="avatar" />
+                <img src="./assets/no-image.png" alt="avatar" />
               </IonCol>
             </IonRow>
           </IonCardHeader>
@@ -114,7 +97,7 @@ const Profile: React.FC = () => {
           </IonAccordion>
         </IonAccordionGroup>
         <IonItem>
-          <IonLabel>Delete Account</IonLabel>
+          <IonLabel><IonIcon icon={trashOutline} /> Delete Account</IonLabel>
         </IonItem>
       </IonCol>
     </IonRow>
