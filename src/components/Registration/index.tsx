@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { APIService } from '../../Services/api';
 import {Form} from '../Form';
 import { alertCircleOutline } from "ionicons/icons";
@@ -10,7 +10,7 @@ const Registration: React.FC = () => {
   const [showErrorMsg, setShowErrorMsg] = useState(false);
   const [showToast, setShowToast]= useState(false);
   const [registrationData, setRegistrationData] = useState<Object>({});
-  const password = useRef({});
+  // const password = useRef({});
 	const formData = [
     {
       label: "I am",
@@ -216,9 +216,9 @@ const Registration: React.FC = () => {
         position={'middle'}
         cssClass={'success-toast'}
         onDidDismiss={() => setShowToast(false)}
-        message="Thank you. We are delighted to have you with us, User is registered successfully.
-        Please check you inbox for confirmation email and try logging in."
-        duration={50000}
+        message="<p class='toast-message-p'>Thank you. We are delighted to have you with us, User is registered successfully.
+        Please check you inbox for confirmation email and try logging in.</p>"
+        duration={20000}
       />
 
 

@@ -4,9 +4,16 @@
   position: absolute;
   right: 0;
   color: #58A827;
+
+  &.disabled{
+    cursor: default;
+opacity: .4;
+pointer-events: none;
+  }
 }
 
 .card-content {
   padding-bottom: 0;
   color: #000;
 }
+

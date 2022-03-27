@@ -27,14 +27,15 @@
 
 }
 }
+.toast-message-p{
+  color: #58A827;
+  font-size: 20px;
+  font-weight: bold;
+}
 .success-toast{
   background-color: rgba(0,0,0,.5);
   & .toast-wrapper {
     border: 1px solid #58A827;
   }
-  & .toast-message{
-    color: #58A827;
-    font-size: 20px;
-    font-weight: bold;
-  }
+
 }
