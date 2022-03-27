@@ -5,20 +5,18 @@ import MyCarousel from '../components/MyCarousel';
 import Search from '../components/Search';
 import SlidingCards from '../components/SlidingCards';
 import SocialShare from '../components/SocialShare';
+import InsideCharts from '../components/InsideCharts';
 import { isEmpty } from "lodash";
 import './Tab1.css';
 const Tab1: React.FC = () => {
     return (
         <IonPage>
       <Header />
-      <IonContent fullscreen>
-        {/* <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large"></IonTitle>
-          </IonToolbar>
-        </IonHeader> */}
+      <IonContent>
+       
         <MyCarousel/>
-        {/* <SlidingCards /> */}
+        <SlidingCards />
+        <InsideCharts />
         <Search />
         <SocialShare />
       </IonContent>
