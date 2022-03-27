@@ -20,6 +20,11 @@ const Header = () => {
     location.reload();
   };
 
+  const redirectToPage = (page: string) => {
+    // eslint-disable-next-line no-restricted-globals
+    location.href = page;
+  }
+
   const islogin = !!localStorage.getItem('isLogin');
 
   return (
@@ -27,8 +32,8 @@ const Header = () => {
       <IonHeader>
         <div className = "bar bar-header bar-positive">
           <IonIcon className="bar-header-icons burger-icon" slot="start" icon={!menuOpen ? menuOutline : closeOutline} onClick = {() => setMenuOpen(!menuOpen)} size="large" />
-          <IonImg className="bar-header-logo-img" src={'/assets/logo.png'} />
-          <IonIcon className="bar-header-icons" slot="end" icon={homeOutline} size="large" />
+          <IonImg onClick = {() => redirectToPage('/')} className="bar-header-logo-img" src={'/assets/logo.png'} />
+          <IonIcon onClick = {() => redirectToPage('/')} className="bar-header-icons" slot="end" icon={homeOutline} size="large" />
 
           <IonList id="menu" className={`hamburger-menu ${menuOpen ? 'open' : 'close'}`}>
             {islogin && <IonItem href="/tab2"><IonIcon className="menu-icon" icon={personCircleOutline}></IonIcon> My Profile</IonItem>}
