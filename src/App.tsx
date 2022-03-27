@@ -10,7 +10,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { personCircleOutline, accessibilityOutline, homeOutline } from 'ionicons/icons';
+import { personCircleOutline, accessibilityOutline, homeOutline, heart, listCircle } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -82,8 +82,8 @@ const App: React.FC = () => (
             <IonLabel>Profile</IonLabel>
           </IonTabButton>}
            {!!islogin && <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={accessibilityOutline} />
-            <IonLabel>New User</IonLabel>
+            <IonIcon icon={listCircle} />
+            <IonLabel>Posts</IonLabel>
           </IonTabButton>
         }
         </IonTabBar>

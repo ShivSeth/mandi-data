@@ -3,7 +3,9 @@ import Registration from '../components/Registration';
 import Header from '../components/Header';
 import Profile from './Profile';
 import './Tab3.css';
+import Favourite from './Favourite';
 
+const islogin = !!localStorage.getItem('isLogin');
 const Tab3: React.FC = () => {
   return (
     <IonPage>
@@ -11,10 +13,11 @@ const Tab3: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader className="my-10">
           <IonToolbar>
-            <IonTitle size="large">Sign Up</IonTitle>
+            <IonTitle size="large">{!islogin ? "Sign Up" : "Lists" }</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <Registration/>
+        {!islogin && <Registration />}
+        {!!islogin && <Favourite />}
       </IonContent>
     </IonPage>
   );
