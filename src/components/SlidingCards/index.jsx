@@ -18,7 +18,7 @@ export const SlidingCards = ({ lists = [] }) => {
                     <img src="./assets/images/7.jpeg" />
                     </IonCol>
                     <IonCol>
-                    <IonCardSubtitle>
+                     <IonCardSubtitle className="card-text">
                        Keep close to Nature's heart... and break clear away, once in awhile.
                        </IonCardSubtitle>
                     </IonCol>
@@ -34,8 +34,8 @@ export const SlidingCards = ({ lists = [] }) => {
                     <img src="./assets/images/11.jpeg" />
                     </IonCol>
                     <IonCol>
-                     <IonCardSubtitle>
-                       Provides a web directory of more than 100 land-grant colleges
+                     <IonCardSubtitle className="card-text">
+                       Provides a web directory of more than 100 land-grant colleges.
                        </IonCardSubtitle>
                     </IonCol>
                   </IonRow>
@@ -50,7 +50,7 @@ export const SlidingCards = ({ lists = [] }) => {
                     <img src="./assets/images/12.jpeg" />
                     </IonCol>
                     <IonCol>
-                     <IonCardSubtitle>
+                      <IonCardSubtitle className="card-text">
                        Gathers and compiles a broad range of empirical data related.
                        </IonCardSubtitle>
                     </IonCol>
