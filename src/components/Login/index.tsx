@@ -7,8 +7,8 @@ import { APIService } from '../../Services/api';
 import './login.css';
 
 const Login: React.FC = () => {
-    const loginApiFarmer = "https://backend-hackathon.herokuapp.com/api/farmer",
-        loginApiBuyer = "https://backend-hackathon.herokuapp.com/api/buyer";
+    const loginApiFarmer = "http://localhost:4000/api/farmer",
+        loginApiBuyer = "http://localhost:4000/api/buyer";
     const [showErrorMsg, setShowErrorMsg] = useState(false);
 
     const loginData = [{
@@ -56,9 +56,9 @@ const Login: React.FC = () => {
         }
     ];
 
-   
+
     const formDataCallBack = (data: any) => {
-    	var api = loginApiFarmer; 
+    	var api = loginApiFarmer;
     	if(data.userType === "Buyer"){
     		api = loginApiBuyer;
     	}
@@ -72,7 +72,6 @@ const Login: React.FC = () => {
     const handleResponse = (response: any) => {
         localStorage.setItem('token', 'sdfsdfsdfd');
         localStorage.setItem('isLogin', 'true');
-
 
     };
     const loginError = (error: any) => {

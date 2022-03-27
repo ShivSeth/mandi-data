@@ -1,15 +1,19 @@
 import React, { useState, useRef } from 'react';
 import { APIService } from '../../Services/api';
 import {Form} from '../Form';
+import { alertCircleOutline } from "ionicons/icons";
+import { IonIcon, IonToast } from '@ionic/react';
 
 import './register.css'
 
 const Registration: React.FC = () => {
+  const [showErrorMsg, setShowErrorMsg] = useState(false);
+  const [showToast, setShowToast]= useState(false);
   const [registrationData, setRegistrationData] = useState<Object>({});
   const password = useRef({});
 	const formData = [
     {
-      label: "I am *",
+      label: "I am",
 			required: true,
 			props: {
 				name: "userType",
@@ -67,6 +71,7 @@ const Registration: React.FC = () => {
 		},
     {
 			label: "Country",
+      required: true,
 			props: {
 				name: "country",
         type: "select",
@@ -178,11 +183,11 @@ const Registration: React.FC = () => {
 
     let url = ''
     if(data.userType === "Seller") {
-      url = 'https://backend-hackathon.herokuapp.com/api/farmer/register';
+      url = 'http://localhost:4000/api/farmer/register';
       submitData=submitDataSeller;
     } else {
       submitData=submitDataBuyer
-      url = 'https://backend-hackathon.herokuapp.com/api/buyer/register';
+      url = 'http://localhost:4000/api/buyer/register';
     }
 
     APIService.axiosCall(url, {
@@ -190,14 +195,37 @@ const Registration: React.FC = () => {
       data: submitData,
       successCallback: (resp:any) => {
         console.log(resp);
+        if(resp) {
+          setShowToast(true);
+        }
       },
-      errorCallback: (err:any) => console.log(err)
+      errorCallBack: (error: any) => registrationError(error)
     });
     console.log('formDataCallBack', data);
   }
 
+  const registrationError = (error: any) => {
+    setShowErrorMsg(true);
+  };
+
   return (
      <div>
+        <IonToast
+        isOpen={showToast}
+        onDidDismiss={() => setShowToast(false)}
+        message="Thank you. We are delighted to have you with us, User is registered successfully.
+        Please check you inbox for confirmation email and try logging in."
+        duration={200}
+      />
+
+        {showErrorMsg && <div className="login-error">
+         <span>
+            <IonIcon icon={alertCircleOutline} size="large"></IonIcon>
+         </span>
+         <span className="msg">
+         	  Service is down, Please try again later.
+         </span>
+         </div>}
         <h6 className='subtitleForm'>If you are already registered <a href="/tab2">Login here.</a> Otherwise, tell us more about you! Your sign up information will help us providing a great experience.
   For sellers, additional information will be needed to receive funds.</h6>
         <Form
